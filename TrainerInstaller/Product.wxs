@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="TrainerInstaller" Language="1033" 
+           Version="1.0.0.0" Manufacturer="Manufacturer" 
+           UpgradeCode="e7003341-3eb9-4a8d-bd7f-d26536b3d5b6">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+        <Directory Id="ProgramFilesFolder">
+            <Directory Id="INSTALLFOLDER" Name="Blindfold Trainer"/>
+        </Directory>
+    </Directory>
+    
+    <!-- Include the heat generated file in the output -->
+    <Feature Id="BlindfoldTrainer" Title="Blindfold Trainer" Level="1">
+      <ComponentGroupRef Id="HeatGenerated" />
+    </Feature>
+  </Product>
+</Wix>

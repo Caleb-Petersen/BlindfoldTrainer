@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLFOLDER">
+            <Component Id="cmpA3C85F15D6041AE8A4F5DCCD3E83EECC" Guid="*">
+                <File Id="fil2222B5F8043CC4973BB98CAA5CD479E1" KeyPath="yes" Source="$(var.HarvestPath)\BlindfoldTrainer.exe" />
+            </Component>
+            <Component Id="cmpD0C1E3095071042DDCADA4F658B0F712" Guid="*">
+                <File Id="fil1422288F8875919AD8A94536C8D32A32" KeyPath="yes" Source="$(var.HarvestPath)\BlindfoldTrainer.exe.config" />
+            </Component>
+            <Component Id="cmpE0BAEF64FE4467B436A4A88D3E96B88E" Guid="*">
+                <File Id="filDA50431F7942FC75E4604FEE841CD739" KeyPath="yes" Source="$(var.HarvestPath)\BlindfoldTrainer.pdb" />
+            </Component>
+            <Component Id="cmp2AD8B9CAFC79FEE8EAE00AF4258CFE51" Guid="*">
+                <File Id="fil80798347F28047E928E22A9F0E156D44" KeyPath="yes" Source="$(var.HarvestPath)\pgn.net.dll" />
+            </Component>
+            <Component Id="cmp268C7D48BE2682695321002E225C90E7" Guid="*">
+                <File Id="filE81B3E94BA4ABD6F43811E0C1FF16182" KeyPath="yes" Source="$(var.HarvestPath)\pgn.net.pdb" />
+            </Component>
+            <Component Id="cmp3843C1929D860015EC7D23FB1A636A8D" Guid="*">
+                <File Id="filCBF270DED21D03EF3790EA578FDFA321" KeyPath="yes" Source="$(var.HarvestPath)\pgn.net.xml" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="HeatGenerated">
+            <ComponentRef Id="cmpA3C85F15D6041AE8A4F5DCCD3E83EECC" />
+            <ComponentRef Id="cmpD0C1E3095071042DDCADA4F658B0F712" />
+            <ComponentRef Id="cmpE0BAEF64FE4467B436A4A88D3E96B88E" />
+            <ComponentRef Id="cmp2AD8B9CAFC79FEE8EAE00AF4258CFE51" />
+            <ComponentRef Id="cmp268C7D48BE2682695321002E225C90E7" />
+            <ComponentRef Id="cmp3843C1929D860015EC7D23FB1A636A8D" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>
