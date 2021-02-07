@@ -8,15 +8,35 @@
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate />
 
+    <!-- Define the output folder -->
     <Directory Id="TARGETDIR" Name="SourceDir">
-        <Directory Id="ProgramFilesFolder">
-            <Directory Id="INSTALLFOLDER" Name="Blindfold Trainer"/>
-        </Directory>
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="Blindfold Trainer"/>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Blindfold Trainer"/>
+      </Directory>
     </Directory>
     
-    <!-- Include the heat generated file in the output -->
+    <!-- Shortcut on the start menu -->
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="*">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="Blindfold Trainer"
+                  Description="Tool for training to play blindfold simuls"
+                  Target="[INSTALLFOLDER]$(var.BlindfoldTrainer.TargetFileName)"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+        <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\BlindfoldTrainer" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+    
+    
     <Feature Id="BlindfoldTrainer" Title="Blindfold Trainer" Level="1">
+      <!-- Include the heat generated file in the output -->
       <ComponentGroupRef Id="HeatGenerated" />
+      <!-- Tell Windows Installer to install the start menu shortcut -->
+      <ComponentRef Id="ApplicationShortcut" />
     </Feature>
   </Product>
 </Wix>
