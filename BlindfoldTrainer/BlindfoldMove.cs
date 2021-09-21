@@ -68,21 +68,28 @@ namespace BlindfoldTrainer
                 if(OriginSquare != null)
                 {
                     startingSquareText = " on " + OriginSquare.File.ToString() + OriginSquare.Rank.ToString() + " ";
-
-                    //Don't say "to" if a capture has taken place
-                    if(Type != MoveType.Capture && Type != MoveType.CaptureEnPassant)
-                    {
-                        startingSquareText += " to ";
-                    }
+                }
+                else if (OriginFile != null)
+                {
+                    startingSquareText = " on the " + OriginFile.Value.ToString() + " file ";
+                }
+                else if (OriginRank != null)
+                {
+                    startingSquareText = " on rank " + OriginRank.Value.ToString();
                 }
                 
-                if(Type == MoveType.Capture)
+                if (Type == MoveType.Capture)
                 {
                     captureText = "takes on ";
                 }
                 else if (Type == MoveType.CaptureEnPassant)
                 {
                     captureText = "takes enpassant on ";
+                }
+                else
+                {
+                    //Don't say "to" if a capture has taken place
+                    startingSquareText += " to ";
                 }
 
                 if(TargetSquare != null)

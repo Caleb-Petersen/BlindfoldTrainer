@@ -90,11 +90,26 @@ namespace BlindfoldTrainer
                                     }
                                 }
                             }
+
+                            if (!g.HasNextMove())
+                            {
+                                string endmsg = "Game " + gameNum.ToString() + " has ended";
+                                Speech.Speak(endmsg);
+                            }
                         }
                     }
                 }
 
-                Console.WriteLine("Completed and ready to Reset");
+                //Give user message about simul completion
+                if (IsSimualCancelled)
+                {
+                    Speech.Speak("Simul successfully Cancelled");
+                }
+                else
+                {
+                    Speech.Speak("Simul Complete");
+                }
+
                 //Reset everything once completed
                 foreach(BlindfoldGame game in SimulGames)
                 {

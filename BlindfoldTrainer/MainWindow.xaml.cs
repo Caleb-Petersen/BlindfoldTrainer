@@ -39,8 +39,7 @@ namespace BlindfoldTrainer
         private void AddPgn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            //openFileDialog.InitialDirectory = @"C:\";
-            openFileDialog.InitialDirectory = @"C:\Users\Caleb\Documents\ChessBase\Bases\Top Chess\2016";
+            openFileDialog.InitialDirectory = @"C:\";
             openFileDialog.RestoreDirectory = true;
             openFileDialog.Title = "Browse PGN Files";
             openFileDialog.DefaultExt = "pgn";

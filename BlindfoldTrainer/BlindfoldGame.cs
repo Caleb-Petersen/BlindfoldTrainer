@@ -50,6 +50,11 @@ namespace BlindfoldTrainer
             return null;
         }
 
+        public bool HasNextMove()
+        {
+            return _currentMoveIndex < Moves.Count;
+        }
+
         private void GetMovesFromPGN()
         {
             foreach(Move move in _pgnGame.MoveText.GetMoves())
