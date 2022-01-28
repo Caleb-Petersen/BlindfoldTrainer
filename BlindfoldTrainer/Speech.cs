@@ -18,6 +18,7 @@ namespace BlindfoldTrainer
         {
             using (SpeechSynthesizer synth = new SpeechSynthesizer())
             {
+                synth.Rate = 3;
                 synth.SetOutputToDefaultAudioDevice();
                 synth.Speak(message);
             }

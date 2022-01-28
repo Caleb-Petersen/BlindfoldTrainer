@@ -11,6 +11,7 @@ namespace BlindfoldTrainer
 {
     public class BlindfoldGame
     {
+        public bool UserNotifiedGameCompleted { get; set; } = false;
         public bool IncludeGameInSimul { get; set; } = false;
         public string UniqueIdentifier { get; private set; }
         public string PgnIdentifier { get; private set; }
@@ -37,6 +38,7 @@ namespace BlindfoldTrainer
         public void ResetGame()
         {
             _currentMoveIndex = 0;
+            UserNotifiedGameCompleted = false;
         }
 
         public BlindfoldMove GetNextMove()
@@ -48,6 +50,11 @@ namespace BlindfoldTrainer
                 return move;
             }
             return null;
+        }
+
+        public bool HasNextMove()
+        {
+            return _currentMoveIndex < Moves.Count;
         }
 
         private void GetMovesFromPGN()
