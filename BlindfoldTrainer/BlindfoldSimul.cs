@@ -91,8 +91,9 @@ namespace BlindfoldTrainer
                                 }
                             }
 
-                            if (!g.HasNextMove())
+                            if (!g.HasNextMove() && !g.UserNotifiedGameCompleted)
                             {
+                                g.UserNotifiedGameCompleted = true;
                                 string endmsg = "Game " + gameNum.ToString() + " has ended";
                                 Speech.Speak(endmsg);
                             }
